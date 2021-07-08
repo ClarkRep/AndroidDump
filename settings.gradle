@@ -1,0 +1,4 @@
+include ':leak-lib'
+include ':tailor-demo'
+include ':koom-demo'
+rootProject.name = "AndroidDump"

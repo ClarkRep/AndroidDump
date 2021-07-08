@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: rootProject.file('common.gradle')
+
+android {
+    defaultConfig {
+        applicationId "com.clark.tailor"
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation deps.kotlin.stdlib
+    implementation deps.androidx.coreKtx
+    implementation deps.androidx.appcompat
+    implementation deps.material
+
+    implementation project(':leak-lib')
+
+    //集成tailor
+    implementation 'com.github.bytedance:tailor:1.1.0'
+}
